@@ -1,5 +1,14 @@
 const pkg = require('./package')
 
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/janet-client/'
+  }
+} : {}
+
+export default {
+  ...routerBase
+}
 
 module.exports = {
   mode: 'spa',
@@ -71,12 +80,6 @@ module.exports = {
     extend(config, ctx) {
       config.resolve.alias['@fortawesome/fontawesome-free-solid-svg-icons$'] = '@fortawesome/fontawesome-free-solid-svg-icons/shakable.es.js'
     }
-  }, 
-
-  /*
-  ** Router options
-  */
-  router: {
-    base: '/janet-client/'
   }
+  
 }
