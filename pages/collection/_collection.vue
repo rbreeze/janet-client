@@ -1,31 +1,67 @@
+<style scoped>
+.table {
+  margin: 0 auto;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+th {
+  text-align: center;
+}
+ul {
+  list-style: none;
+}
+.btn-default {
+  color: black !important;
+  border: 1px solid grey;
+}
+</style>
 <template>
 <div> 
   <h3> {{ collectionName }}</h3>
-  <div class="header row">
-    <div class="col">Name</div>
-    <div class="col">Value</div>
-    <div class="col"></div>
-    <div class="col"></div>
-  </div>
-  <div class="row" v-for="(item, i) in items">
-    <div class="col">
-      <input v-model="item.name" placeholder="Name" />
-    </div>
-    <div class="col">
-      <input v-model="item.value" placeholder="Value" />
-    </div>
-    <div class="col">
-      <div class="btn btn-danger" @click="deleteItem(i)">Delete</div>
-    </div>
-    <div class="col">
-      <div class="btn btn-primary" @click="updateItem(i)">Save</div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col"> 
-      <div class="btn btn-primary" @click="addItem(i)"> Add Item </div>
-    </div>
-  </div>
+  <table class="table table-responsive">
+    <thead>
+      <tr> 
+        <th>Name</th>
+        <th>Value</th>
+        <th>Used</th>
+        <th>Aliases</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(item, i) in items">
+        <td>
+          <input v-model="item.name" class="form-control" placeholder="Name" />
+        </td>
+        <td>
+          <input v-model="item.value" class="form-control" placeholder="Value" />
+        </td>
+        <td>
+          <input v-model="item.used" class="form-control" type="checkbox"/>
+        </td>
+        <td>
+          <ul class="aliases"> 
+            <li v-for="alias in item.aliases" class="mb-2"> 
+              <input type="text" class="form-control" v-model="alias.value" placeholder="alias" />
+            </li>
+            <li @click="addAlias(i)" class="btn btn-default">Add Alias</li>
+          </ul>
+        </td>
+        <td>
+          <div class="btn btn-danger" @click="deleteItem(i)">Delete</div>
+        </td>
+        <td>
+          <div class="btn btn-primary" @click="updateItem(i)">Save</div>
+        </td>
+      </tr>
+      <tr>
+        <td> 
+          <div class="btn btn-primary" @click="addItem(i)"> Add Item </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 </template>
 <script>
@@ -51,6 +87,9 @@ export default {
     }, 
     addItem: function () {
       this.items.push({})
+    },
+    addAlias: function(i) {
+      this.items[i].aliases.push({ value: "" })
     }
   }
 }

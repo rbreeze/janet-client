@@ -1,6 +1,6 @@
 <style>
 
-h1, h3 {
+/*h1, h3 {
   text-align: center !important;
 } 
 .aliases {
@@ -29,7 +29,7 @@ h1, h3 {
 .btn-default {
   color: black !important;
   border: 1px solid grey;
-}
+}*/
 </style>
 
 <template>
