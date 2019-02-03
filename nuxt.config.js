@@ -1,15 +1,15 @@
 const pkg = require('./package')
 
-if (process.env.DEPLOY_ENV === 'GH_PAGES') console.log("Generating for gh-pages...")
-const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
-  router: {
-    base: '/janet-client/'
-  }
-} : {}
+// if (process.env.DEPLOY_ENV === 'GH_PAGES') console.log("Generating for gh-pages...")
+// const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+//   router: {
+//     base: '/janet-client/'
+//   }
+// } : {}
 
-export default {
-  ...routerBase
-}
+// export default {
+//   ...routerBase
+// }
 
 module.exports = {
   mode: 'spa',
@@ -81,6 +81,10 @@ module.exports = {
     extend(config, ctx) {
       config.resolve.alias['@fortawesome/fontawesome-free-solid-svg-icons$'] = '@fortawesome/fontawesome-free-solid-svg-icons/shakable.es.js'
     }
+  }, 
+
+  router: {
+    base: '/janet-client/'
   }
   
 }
