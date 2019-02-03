@@ -1,10 +1,6 @@
-<style scoped>
+<style lang="less" scoped>
 
-.fullPad {
-  border: 1px solid grey;
-  border-radius: 5px;
-  padding: 0px !important;
-}
+@import '~assets/less/colors.less';
 
 h1 {
   font-size: 40px;
@@ -14,6 +10,8 @@ h1 {
 
 h3 {
   font-size: 30px;
+  font-weight: 400;
+  color: #029566;
 }
 
 .custom-container {
@@ -21,12 +19,26 @@ h3 {
   margin: 0 auto;
 }
 
-.table-responsive {
+.container-responsive {
   border-collapse: collapse;
+}
+
+.link.col {
+  text-transform: uppercase;
+  font-size: 21px;
+  color: @blue;
 }
 
 .header.row .col {
   text-align: center;
+}
+
+.col {
+  white-space: nowrap;
+}
+
+label {
+  text-align: right;
 }
 
 .header.row {
@@ -38,74 +50,71 @@ h3 {
   margin: 0 auto;
 }
 
-ul {
-  list-style: none;
+.aliases-container {
+  border-top: 1px solid @grey;
+  background: @beige; 
 }
 
-.btn {
-  color: white !important;
+.collection {
+  border-bottom: 1px solid @grey;
 }
 
-.btn-default {
-  color: black !important;
-  border: 1px solid grey;
+.collections {
+  border-radius: 5px;
+  border: 1px solid @grey;
 }
 
-.center{
-  text-align: center;
-}
-.centerBtn{
-  margin: 0 auto;
-}
 </style>
 
 <template>
-  <div class="custom-container mb-5">
-    <h1 class="title row mb-2">
-      Janet-Client
-    </h1>
+  <div class="container-responsive px-5">
 
-    <h3 class="mb-3 collection"> Collections </h3>
+    <div class="row">
 
-    <div class="table-responseive fullPad">
-      <div class="header row pb-3 mb-3">
-        <div class="col">Link</div>
-        <div class="col">Name</div>
-        <div class="col">Aliases</div>
-        <div class="col"></div>
-        <div class="col"></div>
-      </div>
-      <div v-for="(collection, i) in collections">
-        <div class="row">
-          <div class="col center">
-            <nuxt-link :to="'/collection/' + collection.name">{{ collection.name }}</nuxt-link>
+      <h3 class="col-12 mb-2 mt-4"> Collections </h3>
+        
+      <div class="container-responsive mt-3 mb-5 col-12 collections px-0">
+
+        <div v-for="(collection, i) in collections" class="collection px-3 pt-3">
+          <div class="row col-12 pr-0 d-flex">
+            <div class="link col row mr-auto">
+              <nuxt-link 
+                class="align-self-center"
+                :to="'/collection/' + collection.name"
+              >
+                {{ collection.name }} <fa icon="link"></fa>
+              </nuxt-link>
+            </div>
+            <div class="col d-flex justify-content-end pr-0 ml-auto align-items-center">
+              <label class="mb-0"> Name <fa icon="signature"></fa></label>
+              <input type="text" class="form-control ml-3" v-model="collection.name" />
+              <a @click="deleteCollection(i, collection.name)" class="btn btn-danger ml-3"> 
+                Delete <fa icon="trash-alt"></fa>
+              </a>
+              <a @click="updateCollection(i)" class="save btn btn-primary ml-2"> Save <fa icon="save"></fa> </a>
+            </div>
           </div>
-          <div class="col">
-            <input type="text" class="form-control" v-model="collection.name" />
-          </div>
-          <div class="col">
-            <ul class="aliases">
-              <li v-for="alias in collection.aliases" class="mb-2">
-                <input type="text" class="form-control" v-model="alias.value" placeholder="alias" />
-              </li>
-              <li @click="addAlias(i)" class="btn btn-default">Add Alias</li>
-            </ul>
-          </div>
-          <div class="col">
-            <a @click="deleteCollection(i, collection.name)" class="btn btn-danger"> Delete </a>
-          </div>
-          <div class="col">
-            <a @click="updateCollection(i)" class="save btn btn-primary"> Save </a>
+          <div class="row mt-3"> 
+            <div class="aliases-container col py-2">
+              <AliasList :aliases="collection.aliases" />
+            </div>
           </div>
         </div>
+
       </div>
     </div>
-  </div>
+
+  </div> 
 </template>
 
 <script>
 import axios from 'axios'
+let AliasList = () => import('~/components/AliasList')
+
 export default {
+  components: {
+    AliasList
+  },
   async asyncData () {
     let collections = (await axios.get('http://54.188.72.217/api/collections')).data
     console.log(collections)

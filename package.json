@@ -17,6 +17,8 @@
     "bootstrap-vue": "^2.0.0-rc.11",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
     "nuxt": "^2.3.4",
     "nuxt-fontawesome": "^0.4.0"
   },

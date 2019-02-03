@@ -8,14 +8,15 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: "Janet - Hello!",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }, 
+      { rel: 'stylesheet', type: 'text/css', href: "https://fonts.googleapis.com/css?family=Sarabun" }
     ]
   },
 
@@ -62,7 +63,7 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      
+      config.resolve.alias['@fortawesome/fontawesome-free-solid-svg-icons$'] = '@fortawesome/fontawesome-free-solid-svg-icons/shakable.es.js'
     }
   }
 }
