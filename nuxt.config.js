@@ -65,5 +65,12 @@ module.exports = {
     extend(config, ctx) {
       config.resolve.alias['@fortawesome/fontawesome-free-solid-svg-icons$'] = '@fortawesome/fontawesome-free-solid-svg-icons/shakable.es.js'
     }
+  }, 
+
+  /*
+  ** Router options
+  */
+  router: {
+    base: '/janet-client/'
   }
 }
