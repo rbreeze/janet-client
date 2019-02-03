@@ -1,8 +1,19 @@
 <style scoped>
 
 .fullPad {
-  padding: 10px;
-  border: 5px grey solid;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 0px !important;
+}
+
+h1 {
+  font-size: 40px;
+  margin-left: 0;
+  margin-top: 20px;
+}
+
+h3 {
+  font-size: 30px;
 }
 
 .custom-container {
@@ -10,8 +21,21 @@
   margin: 0 auto;
 }
 
+.table-responsive {
+  border-collapse: collapse;
+}
+
 .header.row .col {
   text-align: center;
+}
+
+.header.row {
+  border-bottom: 1px solid grey;
+  max-width: 100%;
+  padding-top: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 0 auto;
 }
 
 ul {
@@ -27,10 +51,6 @@ ul {
   border: 1px solid grey;
 }
 
-.fullPad{
-  padding: 10px;
-  border: 5px grey solid;
-}
 .center{
   text-align: center;
 }

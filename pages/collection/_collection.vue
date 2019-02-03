@@ -14,9 +14,14 @@ ul {
   color: black !important;
   border: 1px solid grey;
 }
+
+.custom-container {
+  width: 90%;
+  margin: 0 auto;
+}
 </style>
 <template>
-<div> 
+<div class="custom-container mt-3"> 
   <h3> {{ collectionName }}</h3>
   <table class="table table-responsive">
     <thead>
@@ -76,8 +81,8 @@ export default {
   }, 
   methods: {
     deleteItem: async function(i) {
-      this.items[i].splice(i, 1)
       await axios.delete('http://54.188.72.217/api/item/' + this.collectionName + '/' + this.items[i].name)
+      this.items.splice(i, 1)
     }, 
     updateItem: function(i) {
       axios.post('http://54.188.72.217/api/' + this.collectionName + '/item', this.items[i], (err, data) => {
