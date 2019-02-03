@@ -36,7 +36,7 @@ ul {
 
     <h3 class="col-12 mb-3"> 
       <fa icon="list"></fa>
-      {{ collectionName }}
+      {{ formattedCollectionName }}
     </h3>
 
     <div v-for="(item, i) in items" class="container-responsive col-6 p-3">
@@ -87,7 +87,7 @@ ul {
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 let AliasList = () => import('~/components/AliasList')
 export default {
   components: {
@@ -98,21 +98,22 @@ export default {
       title: 'Janet - ' + this.collectionName
     } 
   },
-  async asyncData ({ params }) {
-    let items = (await axios.get('http://54.188.72.217/api/collection/' + params.collection + '/items')).data
-    let collectionName = params.collection.charAt(0).toUpperCase() + params.collection.slice(1)
+  async asyncData ({ params, $axios }) {
+    let items = await $axios.$get('http://54.188.72.217/api/collection/' + params.collection + '/items')
+    let formattedCollectionName = params.collection.charAt(0).toUpperCase() + params.collection.slice(1)
     return {
-      collectionName: collectionName,
+      collectionName: params.collection,
+      formattedCollectionName: formattedCollectionName,
       items: items 
     }
   }, 
   methods: {
     deleteItem: async function(i) {
-      await axios.delete('http://54.188.72.217/api/item/' + this.collectionName + '/' + this.items[i].name)
+      await this.$axios.$delete('http://54.188.72.217/api/item/' + this.collectionName + '/' + this.items[i].name)
       this.items.splice(i, 1)
     }, 
     updateItem: function(i) {
-      axios.post('http://54.188.72.217/api/' + this.collectionName + '/item', this.items[i], (err, data) => {
+      this.$axios.$post('http://54.188.72.217/api/' + this.collectionName + '/item', this.items[i], (err, data) => {
         if (err) console.log(err)
         else console.log(data)
       })

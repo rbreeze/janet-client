@@ -112,15 +112,15 @@ label {
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 let AliasList = () => import('~/components/AliasList')
 
 export default {
   components: {
     AliasList
   },
-  async asyncData () {
-    let collections = (await axios.get('http://54.188.72.217/api/collections')).data
+  async asyncData ({ $axios }) {
+    let collections = await $axios.$get('http://54.188.72.217/api/collections')
     console.log(collections)
     return {
       collections: collections
@@ -128,11 +128,11 @@ export default {
   },
   methods: {
     deleteCollection: async function(i, name) {
-      await axios.delete('http://54.188.72.217/api/collection/' + name)
+      await this.$axios.$delete('http://54.188.72.217/api/collection/' + name)
       this.collections.splice(i, 1)
     },
     updateCollection: async function(i) {
-      axios.put('http://54.188.72.217/api/collection', this.collections[i], (err, data) => {
+      this.$axios.$put('http://54.188.72.217/api/collection', this.collections[i], (err, data) => {
         if (err) console.log(err)
         else console.log("Successfully updated")
       })

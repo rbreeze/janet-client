@@ -43,7 +43,8 @@ module.exports = {
   modules: [,
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt', 
-    'nuxt-fontawesome'
+    'nuxt-fontawesome',
+    '@nuxtjs/axios'
   ],
 
   fontawesome: {
@@ -75,7 +76,7 @@ module.exports = {
   /*
   ** Router options
   */
-  router: {
-    base: '/janet-client/'
-  }
+  // router: {
+  //   base: '/janet-client/'
+  // }
 }
