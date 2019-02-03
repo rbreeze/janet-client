@@ -34,6 +34,12 @@ h1, h3 {
   padding: 10px;
   border: 5px grey solid;
 }
+.center{
+  text-align: center;
+}
+.centerBtn{
+  margin: 0 auto;
+}
 </style>
 
 <template>
@@ -54,7 +60,7 @@ h1, h3 {
       </div>
       <div v-for="(collection, i) in collections">
         <div class="row">
-          <div class="col">
+          <div class="col center">
             <nuxt-link :to="'/collection/' + collection.name">{{ collection.name }}</nuxt-link>
           </div>
           <div class="col">
