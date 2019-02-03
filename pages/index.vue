@@ -5,6 +5,11 @@
   border: 5px grey solid;
 }
 
+.custom-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .header.row .col {
   text-align: center;
 }
@@ -35,7 +40,7 @@ ul {
 </style>
 
 <template>
-  <div>
+  <div class="custom-container mb-5">
     <h1 class="title row mb-2">
       Janet-Client
     </h1>
