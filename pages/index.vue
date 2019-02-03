@@ -9,9 +9,13 @@ h1 {
 }
 
 h3 {
-  font-size: 30px;
+  font-size: 27px;
   font-weight: 400;
-  color: #029566;
+  color: black;
+}
+
+.fa-boxes {
+  font-size: 18px;
 }
 
 .custom-container {
@@ -71,7 +75,7 @@ label {
 
     <div class="row">
 
-      <h3 class="col-12 mb-2 mt-4"> Collections </h3>
+      <h3 class="col-12 mb-2 mt-4"> <fa icon="boxes"></fa> Collections </h3>
         
       <div class="container-responsive mt-3 mb-5 col-12 collections px-0">
 
