@@ -59,7 +59,7 @@ module.exports = {
   axios: {
     proxyHeaders: false,
     credentials: false
-  }
+  },
   /*
   ** Build configuration
   */
