@@ -22,7 +22,7 @@
 
     <h2 class="padLeft">Using JANET with Alexa:</h2>
     <ul class="list-group fullPad" style="padding=15px">
-      <li class="list-group-item">"Alexa, ask Janet helper how amny eggs i have in the fridge."</li>
+      <li class="list-group-item">"Alexa, ask Janet helper how many eggs i have in the fridge."</li>
       <li class="list-group-item">"Alexa, ask Janet helper what my mom's favorite color is."</li>
       <li class="list-group-item">"Alexa, ask Janet helper if my t-shirt is clean."</li>
       <li class="list-group-item">"Alexa, ask Janet helper whats for dinner."(a random dinner, from your dinner collection)</li>

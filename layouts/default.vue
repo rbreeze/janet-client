@@ -31,14 +31,13 @@
         <b-dropdown-item href="/dev_team">Development Team</b-dropdown-item>
       </b-nav-item-dropdown> -->
 
-      <b-nav-item-dropdown right>
-        <!-- Using button-content slot -->
+      <!-- <b-nav-item-dropdown right>
         <template slot="button-content">
           <em>User</em>
         </template>
         <b-dropdown-item href="#">Profile</b-dropdown-item>
         <b-dropdown-item href="#">Signout</b-dropdown-item>
-      </b-nav-item-dropdown>
+      </b-nav-item-dropdown> -->
     </b-navbar-nav>
 
   </b-collapse>
