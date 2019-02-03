@@ -1,5 +1,6 @@
 const pkg = require('./package')
 
+if (process.env.DEPLOY_ENV === 'GH_PAGES') console.log("Generating for gh-pages...")
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
     base: '/janet-client/'
