@@ -1,15 +1,6 @@
 const pkg = require('./package')
 
-// if (process.env.DEPLOY_ENV === 'GH_PAGES') console.log("Generating for gh-pages...")
-// const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
-//   router: {
-//     base: '/janet-client/'
-//   }
-// } : {}
-
-// export default {
-//   ...routerBase
-// }
+if (process.env.DEPLOY_ENV === 'GH_PAGES') console.log("Generating for gh-pages...")
 
 module.exports = {
   mode: 'spa',
@@ -68,7 +59,7 @@ module.exports = {
   },
 
   axios: {
-    proxyHeaders: false,
+    proxyHeaders: true,
     credentials: true
   },
   /*
@@ -84,7 +75,7 @@ module.exports = {
   }, 
 
   router: {
-    base: '/janet-client/'
+    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/janet-client/' : '/'
   }
   
 }
