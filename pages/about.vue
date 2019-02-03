@@ -14,22 +14,23 @@
       <li class="list-group-item">Tracking Refrigerator Contents</li>
       <li class="list-group-item">Tracking Closet Contents</li>
       <li class="list-group-item">Storing ideas/thoughts by catagory</li>
+      <li class="list-group-item">Suggest a random item from a collection</li>
       <li class="list-group-item">Counting how many times someone says "ummm"</li>
       <li class="list-group-item"></li>
+
     </ul>
 
     <h2 class="padLeft">Using JANET with Alexa:</h2>
     <ul class="list-group fullPad" style="padding=15px">
       <li class="list-group-item">"Alexa, ask Janet helper how amny eggs i have in the fridge."</li>
       <li class="list-group-item">"Alexa, ask Janet helper what my mom's favorite color is."</li>
-      <li class="list-group-item">"Alexa, ask Janet helper  if my blue t-shirt is clean."</li>
+      <li class="list-group-item">"Alexa, ask Janet helper if my t-shirt is clean."</li>
       <li class="list-group-item">"Alexa, ask Janet helper whats for dinner."(a random dinner, from your dinner collection)</li>
       <li class="list-group-item">"Alexa, ask Janet helper what to wear."</li>
       <li class="list-group-item">"Alexa, ask Janet helper how many miles i've ran this week."</li>
       <li class="list-group-item">"Alexa, ask Janet helper that my red t-shirt is dirty."</li>
-      <li class="list-group-item">"Alexa, ask Janet helper that I ate three eggs from the fridge."</li>
-
-
+      <li class="list-group-item">"Alexa, tell Janet helper that I ate three eggs from the fridge."</li>
+      <li class="list-group-item">"Alexa, ask Janet helper for an item from my wardrobe."</li>
 
     </ul>
 
