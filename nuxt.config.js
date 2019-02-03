@@ -76,7 +76,7 @@ module.exports = {
   /*
   ** Router options
   */
-  // router: {
-  //   base: '/janet-client/'
-  // }
+  router: {
+    base: '/janet-client/'
+  }
 }
